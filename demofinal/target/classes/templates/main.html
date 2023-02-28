@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/save.js}"></script>
+</head>
+<body>
+<form th:action="@{/users/save}" method="post" th:object="${user}">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}">
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}">
+    </div>
+    <div>
+        <label >Gender:</label>
+        <input type="radio" id="male" th:field="*{gender}" th:value="true"/>
+        <label for="male">Male</label>
+        <input type="radio" id="female" th:field="*{gender}" th:value="false"/>
+        <label for="female">Female</label>
+    </div>
+    <div>
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" th:field="*{birthDate}">
+    </div>
+    <button type="submit">Save</button>
+</body>
+</html>

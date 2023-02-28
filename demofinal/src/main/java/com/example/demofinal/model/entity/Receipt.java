@@ -21,19 +21,19 @@ public class Receipt {
     private float total;
 
     @ManyToOne
-    @JoinColumn(name ="customer_id")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
     @ManyToMany
     @JoinTable(name = "staff_receipt", joinColumns = @JoinColumn(name = "receipt_id"),
-    inverseJoinColumns = @JoinColumn(name = "staff_id"))
+            inverseJoinColumns = @JoinColumn(name = "staff_id"))
     private Set<Staff> staffs;
     @OneToOne
     @JoinColumn(name = "product_id")
     private Product product;
     @ManyToMany
-    @JoinTable(name = "service_order", joinColumns = @JoinColumn(name = "receipt_id"),
-            inverseJoinColumns = @JoinColumn(name = "service_id"))
-    private Set<Service> services;
+    @JoinTable(name = "services_order", joinColumns = @JoinColumn(name = "receipt_id"),
+            inverseJoinColumns = @JoinColumn(name = "services_id"))
+    private Set<Services> services;
 
 
 }
